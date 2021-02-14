@@ -16,10 +16,11 @@ body {
 }
 
 @media print{
-body,.cancelled,h1, h2,th,td,span {
+body,.cancelled,h1, h2,th,td,table,span {
     background-color: white;
     color:black !important;
-    border: black !important;
+    border:none !important;
+    text-shadow: none !important;
 }
 header{
     display: none;
