@@ -1,0 +1,141 @@
+@charset "utf-8";
+
+@import url("main.css");
+
+@media screen{
+body {
+        background-image: url("../img/pexels-john-cahil-rom-2170473.jpg");
+        background-size: cover;
+        background-color: rgb(27, 49, 42);/*in case the background image is not available*/
+        object-position: top left;
+        background-repeat: no-repeat;
+        background-attachment:scroll;
+        font-family: Arial, Helvetica, sans-serif;
+        color:rgba(125, 146, 5, 0.658);
+}
+}
+
+@media print{
+body,.cancelled,h1, h2,th,td,span {
+    background-color: white;
+    color:black !important;
+    border: black !important;
+}
+header{
+    display: none;
+}
+
+}
+
+header{
+    height: 150px;
+    background-color: rgb(39, 39, 158, .5);
+    margin: 0px;
+}
+
+nav {
+    margin-top: 0px;
+    margin-bottom: 0px;
+    margin-left: auto;
+    margin-right: auto;
+    position:relative;
+    width: 600px;
+    top: 120px;
+    
+}
+/*nav is just a container*/
+
+ul{ 
+    list-style-type: none; 
+    margin: 0px;  /* if i apply this to the nav menu after applying this property the header move up and left*/
+    background:pink;
+    height: 30px;  
+    
+}
+
+li{
+    margin:0px;/*i dont see any change applying this property*/
+    float: left;/*when i make the window shorter then the list floats to the left*/
+    margin-right: 10px;
+    padding: 5px;
+    background-color: aquamarine;
+    
+    
+}
+
+.menu a{
+    text-decoration: none;
+      
+}
+
+nav ul li:hover{
+    background-color:cornflowerblue;
+}
+nav ul:hover{
+    background-color: chocolate;
+} 
+
+h1, h2 {
+    color:rgb(0, 255, 115);
+    text-shadow: 1px 1px;
+  }
+h1{
+    font-size: 25px;
+    text-transform:uppercase;
+}
+
+h2{
+    font-size: 20px;
+}
+
+article{
+    padding: 20px;
+}
+
+table{
+    width: 600px;
+    margin-left: auto;
+    margin-right: auto;
+    margin-top: auto;
+    margin-bottom: 50px;
+    border:1px solid black;
+    border-collapse: collapse;   
+}
+
+tr{
+    height: 40px; 
+}
+
+th{
+    background-color: rgb(27, 49, 42);
+}
+tr:nth-child(odd){
+    background-color: white;
+}
+tr:nth-child(even){
+    background-color: lightgrey;
+}
+td{
+    padding-left: 10px;
+    padding-right: 10px;
+}
+
+
+#flight-statuses tr:hover{
+    background-color:yellow;
+    border-top: 1px solid red;
+    border-bottom: 1px solid red;
+}
+
+.cancelled{
+    color: red;
+    font-weight: bold;
+}
+
+.departed{
+    color: green;
+}
+
+.departed::after{
+    content: ' \2708';
+}
