@@ -16,12 +16,17 @@ body {
 }
 
 @media print{
-body,.cancelled,h1, h2,th,td,table,span {
+body,.cancelled,h1, h2,th,td,table{
     background-color: white;
     color:black !important;
     border:none !important;
     text-shadow: none !important;
 }
+
+span{
+    border: 2px solid black !important;
+}
+
 header{
     display: none;
 }
