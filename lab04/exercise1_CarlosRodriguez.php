@@ -43,8 +43,8 @@ foreach ($arrDistances as $values){
 
 print_r($arrMiles);
 
-printf("%s\t%s\n", "KM", "MILES");
+printf("%s\t%3s%s\n", "KM"," ", "MILES");
 foreach ($arrMiles as $keys => $valores){
-    printf("%d\t%.3f\n", $keys, $valores);
+    printf("%d\t%8.3f\n", $keys, $valores);
 }
 ?>
