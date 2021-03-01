@@ -27,10 +27,10 @@ function getKey($testKey, &$arr)
     if (!array_key_exists($testKey, $arr)){
         return $testKey;
     }
-    
+    $letter= 'A';
+    $temp= $testKey;
     while (array_key_exists($testKey,$arr)){
-        $letter= 'A';
-        $testKey =$testKey.$letter++;
+        $testKey =$temp.$letter++;
     }
     return $testKey;
 }
