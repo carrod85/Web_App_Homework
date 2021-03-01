@@ -6,15 +6,18 @@ $handle = fopen($file, "r") or die("Unable to open");
 
 
 $newArrayCountVowels=array();
-$count =0;
+// $count =0;
+foreach ($vowels as $valores){
+    $newArrayCountVowels[$valores]=0;
+}
 
 while(!feof($handle)) {
     $cmp = fgetc($handle);
     foreach ($vowels as $valores){
-        $val =strcmp($cmp , $valores);
+        $val =strcmp(strtoupper($cmp."") , $valores);
         if($val == 0) {
-            $newArrayCountVowels[$valores]=++$count;
-
+            $newArrayCountVowels[$valores]++; //=++$count;
+            break;
         }
         else{
             continue;
