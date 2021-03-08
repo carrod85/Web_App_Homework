@@ -100,11 +100,12 @@ if (isset($_POST["submit"])){
     else{
         $nombre2 = $_POST["middleName"];
         // check if name only contains letters and whitespace
-    if (!preg_match("/^[a-zA-Z-' ]*$/",$nombre2)) {
+        if (!preg_match("/^[a-zA-Z-' ]*$/",$nombre2)) {
         $nombre2Err = "Only letters and white space allowed";
-    }
-    else {
-        $middleName = test_input($nameUltimo);
+        }
+        else {
+        $middleName = test_input($nombre2);
+        }
     }
 
     //AGE
@@ -235,6 +236,6 @@ if (isset($_POST["submit"])){
         echo $dateErr;
 }
 }
-}
+
 
 ?>
