@@ -13,13 +13,6 @@ $form = '<div class ="proba">
 <legend>Course Code(first 3 digits or I00):</legend>
 <input id="code" type="text" name="code" placeholder="I00 or ICA/ICD/etc." maxlength="3" required="">
 </div>
-<div class="season">
-<legend>Semester</legend>
-<input type="checkbox" id="spring" name="spring">
-<label for="spring">Spring</label><br>
-<input type="checkbox" id="autumn" name="autumn">
-<label for="autumn">Autumn</label><br>
-</div>
 <div class="boton">
 <input class="boton" type="submit" name ="submit" id="search" value="Search">
 </div>
