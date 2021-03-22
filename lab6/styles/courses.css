@@ -1,0 +1,44 @@
+@charset "utf-8";
+*{
+  margin:0;
+  padding: 0;
+}
+html, body {
+  box-sizing: border-box; 
+  height: 100%;
+  width: 100%;
+  background-color: #4b6624;
+}
+h1{
+  background-color: rgb(96, 156, 136);
+}
+
+form{
+    background-color: burlywood;
+    width: 100%;
+    float:left;
+    text-align: left;
+}
+
+.code,.season{
+    width:50%;
+    
+}
+
+legend{
+    text-size-adjust: 120%;
+    
+}
+
+.boton,.boton2{
+    width:30%;
+   
+}
+
+#search { 
+background-color: green;
+}
+
+#reset{
+    background-color: red;
+}
