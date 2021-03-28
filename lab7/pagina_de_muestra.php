@@ -1,13 +1,42 @@
 <?php
 include("funciones.php");
+
+
 if (isset($_POST['reset'])){
-    $_SESSION['contador']=0;
+    $_SESSION['valor']=0;
+    $_SESSION['valor2']=0;
 }
 if (isset($_POST['inc'])){
-    $_SESSION['contador']++;
+    if (isset($_COOKIE["ShortTimeCount"])) 
+    {
+    $_SESSION['valor'] =$_COOKIE["ShortTimeCount"]+1;
+    } 
+    else 
+    {   
+    $_SESSION['valor']=1;
+    }
+
+    if (isset($_COOKIE["LongTimeCount"])) 
+    {
+    $_SESSION['valor2'] =$_COOKIE["LongTimeCount"]+1;
+    } 
+    else 
+    {
+    $_SESSION['valor2']=1;
+    }
 }
 
+setcookie("ShortTimeCount", $_SESSION['valor'],time()+5, "/",false, true );
+setcookie("LongTimeCount", $_SESSION['valor2'],time()+10, "/",false, true );
+setcookie("ctransient","CARLOS",0 ,"/", false, true );
+
+echo "ShortTimeCount"."=". $_SESSION['valor'];
+echo "<br>";
+echo "LongTimeCount","=", $_SESSION['valor2'];
+
 validar_sesion();
+
+
 $nombre = $_SESSION['name'];
 $contador = "";
 if ($_SESSION['contador']==0){

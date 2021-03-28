@@ -76,7 +76,7 @@ function sesion_activa() {
         cual es la marca de tiempo más alta, que puedo permitir al
         usuario para mantenerle su sesión activa.
     */
-    $limite_ultimo_acceso = $ultimo_acceso + 5;
+    $limite_ultimo_acceso = $ultimo_acceso + 120;
     /*
         Aquí realizo la comparación. Si el último acceso del usuario,
         más media hora de gracia que le otorgo para mantenerle activa
