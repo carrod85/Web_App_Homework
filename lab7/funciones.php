@@ -52,6 +52,20 @@ function login() {
 }
 
 
+/*function otraPagina() {
+    global $user_valido;
+    if (($_POST['otro']) and ($_SESSION['name']=="carlos")) {
+       
+        goto_page(OTRA_PAGINA);
+    }
+    else{
+        $_SESSION['error']=1;
+        goto_page(PAGINA_LOGIN);
+    }
+    
+}
+*/
+
 
 function logout() {
     session_destroy();

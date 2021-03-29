@@ -26,8 +26,8 @@ if (isset($_POST['inc'])){
     }
 }
 
-setcookie("ShortTimeCount", $_SESSION['valor'],time()+5, "/",false, true );
-setcookie("LongTimeCount", $_SESSION['valor2'],time()+10, "/",false, true );
+setcookie("ShortTimeCount", $_SESSION['valor'],time()+120, "/",false, true );
+setcookie("LongTimeCount", $_SESSION['valor2'],time()+3600, "/",false, true );
 setcookie("ctransient","CARLOS",0 ,"/", false, true );
 
 echo "ShortTimeCount"."=". $_SESSION['valor'];
@@ -35,7 +35,12 @@ echo "<br>";
 echo "LongTimeCount","=", $_SESSION['valor2'];
 
 validar_sesion();
+/*
+if (isset($_SESSION)){
+    $link=OTRA_PAGINA;
+}
 
+*/
 
 $nombre = $_SESSION['name'];
 $contador = "";
@@ -77,6 +82,12 @@ else{
     <!-- contenido de ejemplo -->
         <b>Bienvenido <?php echo $nombre ?>!</b> 
         (<a href="salir.php">Desconectarse</a>)
+        <a href="lapagina.php">otrapagina</a>
+        
+
+        <!--<form class="primero" method="POST" action="otro.php">
+            <input class="color1" type="submit" name="otro" value="otra pagina" />
+        </form>-->
 
         <form class="primero" method="POST" action="pagina_de_muestra.php">
             <input class="color1" type="submit" name="reset" value="reset" />

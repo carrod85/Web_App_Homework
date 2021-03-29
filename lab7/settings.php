@@ -8,4 +8,5 @@ const PAGINA_LOGIN = "formulario.php";
 # esta será una página cualquiera, con acceso restringido, a la cual 
 # redirigir al usuario después de iniciar su sesión en el sistema
 const PAGINA_RESTRINGIDA_POR_DEFECTO = "pagina_de_muestra.php";
+const OTRA_PAGINA = "lapagina.php";
 ?>
