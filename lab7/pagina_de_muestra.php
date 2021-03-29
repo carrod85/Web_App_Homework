@@ -2,6 +2,7 @@
 include("funciones.php");
 
 
+
 if (isset($_POST['reset'])){
     $_SESSION['valor']=0;
     $_SESSION['valor2']=0;
@@ -30,9 +31,9 @@ setcookie("ShortTimeCount", $_SESSION['valor'],time()+120, "/",false, true );
 setcookie("LongTimeCount", $_SESSION['valor2'],time()+3600, "/",false, true );
 setcookie("ctransient","CARLOS",0 ,"/", false, true );
 
-echo "ShortTimeCount"."=". $_SESSION['valor'];
+echo "ShortTimeCount","=","0" + $_SESSION['valor'];
 echo "<br>";
-echo "LongTimeCount","=", $_SESSION['valor2'];
+echo "LongTimeCount","=", "0" + $_SESSION['valor2'];
 
 validar_sesion();
 /*
