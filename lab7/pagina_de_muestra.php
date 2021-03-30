@@ -27,9 +27,9 @@ if (isset($_POST['inc'])){
     }
 }
 
-setcookie("ShortTimeCount", $_SESSION['valor'],time()+120, "/",false, true );
-setcookie("LongTimeCount", $_SESSION['valor2'],time()+3600, "/",false, true );
-setcookie("ctransient","CARLOS",0 ,"/", false, true );
+setcookie("ShortTimeCount", $_SESSION['valor'],time()+120, "/~carrod",false, true );
+setcookie("LongTimeCount", $_SESSION['valor2'],time()+3600, "/~carrod",false, true );
+setcookie("ctransient","CARLOS",0 ,"/~carrod", false, true );
 
 echo "ShortTimeCount","=","0" + $_SESSION['valor'];
 echo "<br>";
