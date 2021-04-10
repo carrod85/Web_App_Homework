@@ -1,3 +1,58 @@
+2.2
+
+create table semesters_201841
+(
+ID int auto_increment primary key,
+semester_name varchar(20) UNIQUE);
+
+2.3
+
+create table declarations_201841
+(
+ID int auto_increment primary key,
+courses_ID int,
+semesters_ID int,
+student_code varchar(10),
+student_name varchar(45),
+remarks varchar(125));
+
+2.4
+
+create table test
+(
+ID int auto_increment primary key,
+grade tinyint unsigned);
+
+
+3.1
+INSERT INTO semesters_201841 (semester_name)
+VALUES
+    ('autumn'),
+    ('spring'),
+    ('autumn-spring');
+
+
+
+3.2
+INSERT INTO declarations_201841 (courses_ID, semester_ID, student_code, student_name, remarks)
+VALUES
+    (6, 1, '111111', 'Carlos', 'bad'),
+    (7, 1, '222222', 'David', 'mediocre'),
+    (8, 2, '333333', 'Fernando', 'good'),
+    (9, 3, '444444', 'Felipe', 'very good'),
+    (12, 3, '444444', 'Felipe', 'excellent',
+    (12, 2, '444444', 'Felipe', 'bad');
+    
+
+4
+mysql> alter table courses_201841
+    -> MODIFY old_credits decimal(3,1);
+
+update courses_201841
+set old_credits = round(ects_credits * 1.5,1);
+
+select * from courses_201841 limit 5;
+
 5.1.
 mysql> SELECT *  FROM courses_201841 WHERE Semesters_ID= 2 AND course_name LIKE '%programming%';
 +-----+-------------+--------------------------------------------+--------------+-------------+--------------+
