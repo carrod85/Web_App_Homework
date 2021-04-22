@@ -39,7 +39,7 @@
           column = row.insertCell(2);
           column.innerHTML = quantity;
 
-          var storedList = JSON.parse(localStorage.getItem("storedList"));//retrieve en javascript format (objeto)
+          var storedList = JSON.parse(localStorage.getItem(username));//retrieve en javascript format (objeto)
           if (storedList == null || storedList == "") {
             storedList = new Array();
             storedList.push(
@@ -48,14 +48,14 @@
                  "quantity": quantity}
               );//añadimos propiedades y valores al objeto
             
-            localStorage.setItem("storedList", JSON.stringify(storedList));//para guardar en formato texto
+            localStorage.setItem(username, JSON.stringify(storedList));//para guardar en formato texto
           } else {
             storedList.push(
                 { "username":username,
                   "product": product,
                  "quantity": quantity}
               );
-            localStorage.setItem("storedList", JSON.stringify(storedList));
+            localStorage.setItem(username, JSON.stringify(storedList));
           }
 
           document.getElementById("product").value = ""; // quitamos el valor del input.
@@ -64,16 +64,36 @@
       }
 
       function deleteProduct(row) {
+        var tabla = document.getElementById("shoppingListTable");
+        var totalRow = tabla.rows.length;
+        //alert(totalRow);
         var username = sessionStorage.getItem("username");
         numRow = row.cells[0].innerHTML;//saber numero de fila que debemos borrar
-        var storedList = JSON.parse(localStorage.getItem("storedList"));
+        var storedList = JSON.parse(localStorage.getItem(username));
+        var longitud=storedList.length;
+        var suma= +numRow + +longitud;
         if (storedList != null && storedList != "") {
-          if (window.confirm("Are you sure to delete the item " + row.cells[1].innerHTML + "?")) {
+          if (window.confirm("Are you sure to delete the item " + row.cells[1].innerHTML+ ""+ "?")) {
+            
+            if(longitud<=totalRow-1){
+            var a=totalRow -1;
+            alert("totalrow-1"+ a);
             document.getElementById("shoppingListTable").deleteRow(numRow);
             storedList.splice(numRow-1, 1);
             //localStorage.removeItem("storedList");//elimino datos
-            location.reload();
-            localStorage.setItem("storedList", JSON.stringify(storedList));//los vuelvo a cargar.
+            
+            localStorage.setItem(username, JSON.stringify(storedList));//los vuelvo a cargar.
+            
+            }
+            else{
+              //alert(suma-2-totalRow-2);
+              let longitud= storedList.length;
+              //alert("longitud" + "" + longitud +"y numero fila" + numRow);
+              document.getElementById("shoppingListTable").deleteRow(numRow);
+              storedList.splice(+longitud+ +numRow - +totalRow, 1);
+              localStorage.setItem(username, JSON.stringify(storedList));//los vuelvo a cargar.
+              
+            }
             /*storedList.splice(1,storedList.length);
             storedList = JSON.parse(localStorage.getItem("storedList"));
             
@@ -105,13 +125,14 @@
           */
 
         }
+        location.reload();
       }
     }
 
       function displayList() {
         let username = sessionStorage.getItem("username");
         //numRow = row.cells[0].innerHTML;saber numero de fila que debemos borrar
-        var storedList = JSON.parse(localStorage.getItem("storedList"));
+        var storedList = JSON.parse(localStorage.getItem(username));
         if (storedList != null && storedList != "" ) {
           for (var i = 0; i <= storedList.length; i++) {
             
@@ -134,7 +155,7 @@
             }
               
 
-
+          
           }
         }
       }  
