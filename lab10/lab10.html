@@ -70,8 +70,8 @@
         if (storedList != null && storedList != "") {
           if (window.confirm("Are you sure to delete the item " + row.cells[1].innerHTML + "?")) {
             document.getElementById("shoppingListTable").deleteRow(numRow);
-            storedList.splice(numRow - 1, 1);
-            localStorage.removeItem("storedList");//elimino datos
+            storedList.splice(numRow-1, 1);
+            //localStorage.removeItem("storedList");//elimino datos
             location.reload();
             localStorage.setItem("storedList", JSON.stringify(storedList));//los vuelvo a cargar.
             /*storedList.splice(1,storedList.length);
@@ -138,7 +138,10 @@
           }
         }
       }  
-      
+      function destroySession() {
+        sessionStorage.clear();
+        location.reload();
+      }
     </script>
  </head>
  <body onload="checkSession()">
@@ -149,8 +152,10 @@
          <label for="input">Quantity:</label>
          <input type="number" name="quantity" id="quantity">
          <input type="button" id="add" value="Add to List" onclick="addProduct()">
+         
    </form>
-   <p></p>
+
+   <p><button type="button" id="destroySession" value="log out" onclick="destroySession()">log out</button></p>
    <table id="shoppingListTable" onload="displayList()">
      <tr><th>No.</th><th>Product</th><th>Quantity</th></tr>
  </body>
