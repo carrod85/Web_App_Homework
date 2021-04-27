@@ -10,7 +10,7 @@
         while (username == "" || username == null) {
           username = prompt("Please enter your name:", "");
           if (username != "" && username != null) {
-            document.cookie = "username=" + username + "; max-age=3600; path=/;";
+            document.cookie = "username=" + username + "; max-age=3600; path=/~carrod";
             sessionStorage.setItem("username", username);
           }
         }
@@ -43,7 +43,7 @@
           if (storedList == null || storedList == "") {
             storedList = new Array();
             storedList.push(
-                { "username":username,
+                { //"username":username,
                   "product": product,
                  "quantity": quantity}
               );//añadimos propiedades y valores al objeto
@@ -51,7 +51,7 @@
             localStorage.setItem(username, JSON.stringify(storedList));//para guardar en formato texto
           } else {
             storedList.push(
-                { "username":username,
+                { //"username":username,
                   "product": product,
                  "quantity": quantity}
               );
@@ -75,17 +75,17 @@
         if (storedList != null && storedList != "") {
           if (window.confirm("Are you sure to delete the item " + row.cells[1].innerHTML+ ""+ "?")) {
             
-            if(longitud<=totalRow-1){
-            var a=totalRow -1;
-            alert("totalrow-1"+ a);
+            //if(longitud<=totalRow-1){
+            //var a=totalRow -1;
+            //alert("totalrow-1"+ a);
             document.getElementById("shoppingListTable").deleteRow(numRow);
             storedList.splice(numRow-1, 1);
             //localStorage.removeItem("storedList");//elimino datos
             
             localStorage.setItem(username, JSON.stringify(storedList));//los vuelvo a cargar.
             
-            }
-            else{
+            //}
+            /*else{
               //alert(suma-2-totalRow-2);
               let longitud= storedList.length;
               //alert("longitud" + "" + longitud +"y numero fila" + numRow);
@@ -94,7 +94,7 @@
               localStorage.setItem(username, JSON.stringify(storedList));//los vuelvo a cargar.
               
             }
-            /*storedList.splice(1,storedList.length);
+            storedList.splice(1,storedList.length);
             storedList = JSON.parse(localStorage.getItem("storedList"));
             
               for (var i = 0; i <= storedList.length; i++) {
@@ -134,10 +134,10 @@
         //numRow = row.cells[0].innerHTML;saber numero de fila que debemos borrar
         var storedList = JSON.parse(localStorage.getItem(username));
         if (storedList != null && storedList != "" ) {
-          for (var i = 0; i <= storedList.length; i++) {
+          for (var i = 0; i < storedList.length; i++) {
             
-              if(storedList[i].username === username){
-             
+            //if(storedList[i].username === username){
+              
               var table = document.getElementById("shoppingListTable");
               var numRows = table.rows.length;
               var row = table.insertRow(-1);
@@ -148,13 +148,13 @@
               column.innerHTML = storedList[i].product;
               column = row.insertCell(2);
               column.innerHTML = storedList[i].quantity;
-              
-            }
+          /*    
+          }
             else{
               continue;
             }
               
-
+            */
           
           }
         }
@@ -164,20 +164,21 @@
         location.reload();
       }
     </script>
- </head>
- <body onload="checkSession()">
-   <h2 id="userShoppingList"></h2>
-   <form id="form">
-         <label for="input">Product:</label>
-         <input type="text" name="product" id="product">
-         <label for="input">Quantity:</label>
-         <input type="number" name="quantity" id="quantity">
-         <input type="button" id="add" value="Add to List" onclick="addProduct()">
+  </head>
+    <body onload="checkSession()">
+      <h2 id="userShoppingList"></h2>
+        <form id="form">
+          <label for="product">Product:</label>
+          <input type="text" name="product" id="product">
+          <label for="quantity">Quantity:</label>
+          <input type="number" name="quantity" id="quantity">
+          <input type="button" id="add" value="Add to List" onclick="addProduct()">
          
-   </form>
+        </form>
 
-   <p><button type="button" id="destroySession" value="log out" onclick="destroySession()">log out</button></p>
-   <table id="shoppingListTable" onload="displayList()">
-     <tr><th>No.</th><th>Product</th><th>Quantity</th></tr>
- </body>
+        <p><button type="button" id="destroySession" value="log out" onclick="destroySession()">log out</button></p>
+        <table id="shoppingListTable" onload="displayList()">
+          <tr><th>No.</th><th>Product</th><th>Quantity</th></tr>
+        </table>
+    </body>
 </html>
