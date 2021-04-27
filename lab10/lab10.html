@@ -64,6 +64,7 @@
       }
 
       function deleteProduct(row) {
+        var column;
         var tabla = document.getElementById("shoppingListTable");
         var totalRow = tabla.rows.length;
         //alert(totalRow);
@@ -80,10 +81,15 @@
             //alert("totalrow-1"+ a);
             document.getElementById("shoppingListTable").deleteRow(numRow);
             storedList.splice(numRow-1, 1);
-            localStorage.removeItem("storedList");//elimino datos
+            //localStorage.removeItem("storedList");//elimino datos
             
             localStorage.setItem(username, JSON.stringify(storedList));//los vuelvo a cargar.
-            
+            var tableHeaderRowCount = 1;
+            var table = document.getElementById('shoppingListTable');
+            var rowCount = table.rows.length;
+              for (var i = tableHeaderRowCount; i < rowCount; i++) {
+                table.deleteRow(tableHeaderRowCount);
+            }
             //}
             /*else{
               //alert(suma-2-totalRow-2);
@@ -124,8 +130,7 @@
           }
           */
 
-        }
-        tabla.tr.innerHTML ="";
+        }        
         displayList();
         //location.reload();
       }
